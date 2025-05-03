@@ -7,6 +7,29 @@
     <title>Page Replacement Algorithm</title>
 </head>
 <body>
-    <h1>Hello Page Replacement Algorithm!z</h1>
+    <h1> Page Replacement Algorithm Simulator </h1>
+    <hr>
+    <h3> Reference String</h3>
+    <input type="text" class="refString" placeholder="Ex. 0, 1, 2, 3, 4, 5, 6, 7, 8, 9">
+    <h3> Number of Frames </h3>
+    <input type="text" class="numFrames" placeholder="Ex. 3">
+    <button class="calculate"> Calculate </button>
+    <hr class = "hr2">
+    <h2 class = h2Title> Page Replacement Algorithm </h2>
+    <h2> A Page Replacement Algorithm is a method used in operating systems to manage memory when there is limited physical RAM available. It decides which memory pages to remove when a new page needs to be loaded, helping to minimize page faults and maintain efficient system performance. Common algorithms include FIFO (First-In, First-Out), LRU (Least Recently Used), and Optimal, each with its own strategy for selecting which page to replace. These algorithms are essential in virtual memory systems to ensure smooth execution of programs by optimizing memory usage. </h2>
+    <hr class = "hr2">
+    <h2 class = h2Algo> First In First Out (FIFO) Algorithm </h2>
+    <h2> The FIFO (First-In, First-Out) page replacement algorithm is a method used in computer systems to manage memory. It works by replacing the oldest page in memory with a new one when space is needed. The pages are arranged in a queue, and when a new page is requested, the page that has been in memory the longest is removed. While this algorithm is simple and easy to implement, it may not always be the most efficient, as it does not take into account how often or recently a page is used. </h2>
+    <hr class = "hr2">
+    <h2 class = h2Algo> Least Recently Used (LRU) Algorithm </h2>
+    <h2> The LRU (Least Recently Used) page replacement algorithm is used in computer systems to manage memory by replacing the page that has not been used for the longest period of time. It keeps track of the order in which pages are accessed, and when a new page needs to be loaded into memory, it identifies and removes the page that was used least recently. This approach is more efficient than FIFO in many cases because it tends to keep the more frequently accessed pages in memory, reducing the number of page faults. However, it requires extra overhead to keep track of the access history of the pages. </h2>
+    <hr class = "hr2">
+    <h2 class = h2Algo> Optimal Algorithm </h2>
+    <h2> The Optimal page replacement algorithm is considered the most efficient page replacement strategy, as it aims to minimize the number of page faults. It works by replacing the page that will not be used for the longest period of time in the future. The algorithm looks ahead at the future page references and chooses the page that will not be needed for the longest duration. While it guarantees the lowest page fault rate, it is not practical for real systems because it requires knowledge of future memory accesses, which is generally not available. However, it serves as a benchmark for evaluating other algorithms. </h2>
+    <hr class = "hr2">
+    <h4> </h4>
+ 
+
+
 </body>
 </html>
