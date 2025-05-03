@@ -1,0 +1,24 @@
+{
+  "name": "page-replacement-algorithms",
+  "productName": "Page Replacement Algorithms",
+  "version": "1.0.0",
+  "description": "case study in operating system course",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhddc/Page-Replacement-Algorithms.git"
+  },
+  "author": "Rhed Dela Cruz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rhddc/Page-Replacement-Algorithms/issues"
+  },
+  "homepage": "https://github.com/rhddc/Page-Replacement-Algorithms#readme",
+  "dependencies": {
+    "electron": "^36.1.0",
+    "toastify-js": "^1.12.0"
+  }
+}
