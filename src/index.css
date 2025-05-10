@@ -2,6 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     background-color: #F3F3E0;
+    width: 100vw;
 }
 
 h1 {
@@ -9,6 +10,20 @@ h1 {
     font-size: 40px;
     text-align: center;
     margin-top: 40px;
+}
+
+.clickable-button {
+    cursor: pointer;  
+    user-select: none; 
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.clickable-button:hover {
+    transform: scale(1.01);  
+}
+
+.clickable-button:active {
+    transform: scale(0.999);  
 }
 
 hr {
@@ -32,14 +47,15 @@ h3 {
     width: 35%;             
     border: 2px solid #021024;
     border-radius: 15px;
-    outline: none;
+    padding-left: 30px;
   }
   input.refString {
   height: 35px;
   padding: 8px 12px;
   font-size: 16px;
   box-sizing: border-box;
-}
+  outline: none;
+  }
 .refString:focus {
     border: 2px solid #007BFF; /* Change this to any color you like */
   }
@@ -54,7 +70,6 @@ h3 {
     border-radius: 15px;
     outline: none;
     text-align: center;
-    margin-bottom: 15px;
   }
   input.numFrames {
   height: 35px;
@@ -80,6 +95,7 @@ input.numFrames::placeholder, input.refString::placeholder {
     display: block;
     margin: auto;
     margin-bottom: 20px;
+    margin-top: 15px;
     border: 1px solid transparent; 
 }
 
@@ -96,12 +112,14 @@ input.numFrames::placeholder, input.refString::placeholder {
 .h2Title {
     font-weight: bold;
     text-align: center;
-    font-size: 22px;
+    font-size: 25px;
+    font-family: 'Times New Roman';
     margin-bottom: 1px;
 }
 .h2Algo {
     font-weight: bold;
     text-align: left;
+    font-family: "Times New Roman";
     font-size: 22px;
     margin-bottom: 1px;
 }
@@ -116,4 +134,114 @@ h2 {
 }
 h4 {
     margin-bottom: 200px;
+}
+
+.divError {
+    text-align: center;
+}
+
+.error-message {
+    color: red; /* Red color for error message */
+    font-size: 15px;
+    font-family: "Times New Roman";
+    margin-bottom: 10px;
+    display: none; /* Initially hidden */
+    text-align: center;
+}
+
+/* Wrapper that holds both the input and the random icon button */
+.input-wrapper {
+    position: relative; /* Make sure the container is positioned */
+    width: fit-content;
+}
+
+/* The random icon inside the button */
+.random-icon {
+    position: absolute; /* Position it absolutely inside the wrapper */
+    left: 947px; /* Move it 10px from the left */
+    top: 17px; /* Center it vertically */
+    transform: translateY(-50%); /* Adjust to perfectly center vertically */
+    width: 25px; /* Set width of the icon */
+    height: 25px; /* Set height of the icon */
+}
+
+.random-icon:hover {
+    transform: translateY(-50%) scale(1.1); /* Slightly scale the icon to make it appear bigger */
+    filter: brightness(1.2); /* Slightly brighten the icon for visual change */
+}
+
+/* If you have a button, make sure it's styled properly */
+#generateRandom {
+    position: absolute; /* If you have a button element with the image */
+    background: transparent; /* Make the button background transparent */
+    border: none; /* Remove any default button border */
+    cursor: pointer; /* Show a pointer cursor on hover */
+    padding: 0; /* Remove padding to ensure only the icon shows */
+}
+
+.visual-output {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.reference-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.ref {
+    text-align: center;
+    font-weight: bold;
+    width: 47px;
+}
+
+.frame-grid {
+    display: flex;
+    justify-content: center;
+    gap: 8px; /* gap between columns */
+}
+
+.frame-column {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff6dd;
+    border: 2px solid black;
+    padding: 4px 2px;
+    border-radius: 5px;
+}
+
+.frame-cell {
+    width: 40px;
+    height: 40px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.frame-cell:last-child {
+    border-bottom: none; /* no line on bottom cell */
+}
+
+
+#resultContainer {
+    display: none; /* Initially hidden */
+    background-color: #acc8e3;
+    margin: 20px;
+    border: solid 2px #000000;
+    border-radius: 20px;
+    padding: 20px; /* Add padding here */
+}
+
+.h2Results {
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Times New Roman';
+    margin-bottom: 1px;
+    margin-top: 1px;
 }

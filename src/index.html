@@ -7,14 +7,26 @@
     <title>Page Replacement Algorithm</title>
 </head>
 <body>
-    <h1> Page Replacement Algorithm Simulator </h1>
+    <div>
+        <a href="index.html"></a>
+        <h1 class="clickable-button" onclick="goMain()"> Page Replacement Algorithm Simulator </h1>
+        </a>
+    </div>
     <hr>
-    <h3> Reference String</h3>
-    <input type="text" class="refString" placeholder="Ex. 0, 1, 2, 3, 4, 5, 6, 7, 8, 9">
-    <h3> Number of Frames </h3>
-    <input type="text" class="numFrames" placeholder="Ex. 3">
+        <h3 for="refString">Reference String:</h3>
+        <button id="generateRandom">
+            <img src="../icons/random.png" alt="Random Icon" title = "Random" class = "random-icon">
+        </button>
+        <input type="text" class="refString" id="refString" placeholder="Ex. 0, 1, 2, 3, 4, 5, 6, 7, 8, 9">
+        <div class="error-message" id="refString-error"></div>
+
+        <h3 for="numFrames">Number of Frames:</h3>
+        <input type="text" class="numFrames" id="numFrames" placeholder="Ex.">
+        <div class="error-message" id="numFrames-error"></div>
     <button class="calculate"> Calculate </button>
     <hr class = "hr2">
+
+    <div id="descriptionContent">
     <h2 class = h2Title> Page Replacement Algorithm </h2>
     <h2> A Page Replacement Algorithm is a method used in operating systems to manage memory when there is limited physical RAM available. It decides which memory pages to remove when a new page needs to be loaded, helping to minimize page faults and maintain efficient system performance. Common algorithms include FIFO (First-In, First-Out), LRU (Least Recently Used), and Optimal, each with its own strategy for selecting which page to replace. These algorithms are essential in virtual memory systems to ensure smooth execution of programs by optimizing memory usage. </h2>
     <hr class = "hr2">
@@ -28,6 +40,19 @@
     <h2> The Optimal page replacement algorithm is considered the most efficient page replacement strategy, as it aims to minimize the number of page faults. It works by replacing the page that will not be used for the longest period of time in the future. The algorithm looks ahead at the future page references and chooses the page that will not be needed for the longest duration. While it guarantees the lowest page fault rate, it is not practical for real systems because it requires knowledge of future memory accesses, which is generally not available. However, it serves as a benchmark for evaluating other algorithms. </h2>
     <hr class = "hr2">
     <h4> </h4>
- 
+    </div>
+
+    
+    <div id="resultContainer">
+        <h2 class ="h2Results">First In First Out (FIFO) Results </h2>
+        <p id="faultCount" style="text-align:center;">Total Page Faults: <strong>0</strong></p>
+        <div class="visual-output">
+            <div class="reference-row" id="referenceRow"></div>
+            <div class="frame-grid" id="frameGrid"></div>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+
 </body>
 </html>
