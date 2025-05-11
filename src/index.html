@@ -17,11 +17,11 @@
         <button id="generateRandom">
             <img src="../icons/random.png" alt="Random Icon" title = "Random" class = "random-icon">
         </button>
-        <input type="text" class="refString" id="refString" placeholder="Ex. 0, 1, 2, 3, 4, 5, 6, 7, 8, 9">
+        <input type="text" class="refString" id="refString" value = "7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 1, 2, 0, 1, 7, 0, 1" placeholder="Ex. 0, 1, 2, 3, 4, 5, 6, 7, 8, 9">
         <div class="error-message" id="refString-error"></div>
 
         <h3 for="numFrames">Number of Frames:</h3>
-        <input type="text" class="numFrames" id="numFrames" placeholder="Ex.">
+        <input type="text" class="numFrames" id="numFrames" value ="3" placeholder="Ex. 4">
         <div class="error-message" id="numFrames-error"></div>
     <button class="calculate"> Calculate </button>
     <hr class = "hr2">
@@ -43,13 +43,40 @@
     </div>
 
     
-    <div id="resultContainer">
-        <h2 class ="h2Results">First In First Out (FIFO) Results </h2>
-        <p id="faultCount" style="text-align:center;">Total Page Faults: <strong>0</strong></p>
+    <div id="FIFOresultContainer">
+        <h2 class ="h2Results">First In First Out (FIFO) Algorithm Results </h2>
+        <p id="fifoFaultCount" style="text-align:center;">Total Page Faults: <strong>0</strong></p>
         <div class="visual-output">
-            <div class="reference-row" id="referenceRow"></div>
-            <div class="frame-grid" id="frameGrid"></div>
+            <div class="reference-row" id="fifoReferenceRow"></div>
+            <div class="frame-grid" id="fifoFrameGrid"></div>
         </div>
+    </div>
+
+    <div id="LRUresultContainer">
+        <h2 class="h2Results">Least Recently Used (LRU) Algorithm Results</h2>
+        <p id="lruFaultCount" style="text-align:center;">Total Page Faults: <strong>0</strong></p>
+        <div class="visual-output">
+            <div class="reference-row" id="lruReferenceRow"></div>
+            <div class="frame-grid" id="lruFrameGrid"></div>
+        </div>
+    </div>
+
+    <div style = "margin-bottom: 100px;" id="OptimalresultContainer" class="algorithm-result-container">
+        <h2 class="h2Results">Optimal Algorithm Results</h2>
+        <p id="optimalFaultCount" style="text-align: center;">Total Page Faults: <strong></strong></p>
+        <div class="visual-output">
+            <div class="reference-row" id="optimalReferenceRow"></div>
+            <div class="frame-grid" id="optimalFrameGrid"></div>
+        </div>
+        
+    </div>
+
+    <div id="analysisContainer"></div>
+    <div id="resultsContainer"></div>
+
+
+    <div id="credits">
+        Created by Rhed Dela Cruz, Student at Tarlac State University. Developed as part of academic work in Operating System.
     </div>
 
     <script src="renderer.js"></script>

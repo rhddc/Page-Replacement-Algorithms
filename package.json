@@ -20,5 +20,29 @@
   "dependencies": {
     "electron": "^36.1.0",
     "toastify-js": "^1.12.0"
+  },
+  "build": {
+    "appId": "com.rhed.page-replacement-algorithms",
+    "productName": "Page Replacement Algorithms",
+    "icon": "icons/app-icon.ico",
+    "files": [
+      "src/**/*",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true
+    }
   }
 }
