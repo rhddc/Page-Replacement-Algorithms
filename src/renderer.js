@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Elements
     const calculateBtn = document.querySelector('.calculate');
     const refInput = document.getElementById('refString');
     const frameInput = document.getElementById('numFrames');
@@ -10,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const randomBtn = document.getElementById('generateRandom');
     const resultsContainer = document.getElementById('resultsContainer');
 
-    // Algorithm-specific result elements mapping
     const algorithmResults = {
         'FIFO': {
             container: FIFOresultContainer,
@@ -102,65 +100,99 @@ document.addEventListener('DOMContentLoaded', () => {
         displayAlgorithmResult(LRUresult, 'LRU', validRefString, frameCount);
         displayAlgorithmResult(Optimalresult, 'Optimal', validRefString, frameCount);
 
-        displayLeastFaultAlgorithm();
-        displayAnalysisTable();  // Add this line
+        displayLeastFaultAlgorithm(); // Display the algorithm with the least page faults
+        displayAnalysisTable(); // Display analysis table
     });
 
-    // Algorithm functions
+    // FIFO (First-In, First-Out) Algorithm Function
     function runFIFO(referenceString, frameCount) {
         const frames = [];
         const frameStates = [];
         let pageFaults = 0;
-        const fifoQueue = [];
+        const fifoQueue = [];   
 
+        // Iterate through each page in the reference string
         for (const page of referenceString) {
+            // Check if the page is already in memory
             if (!frames.includes(page)) {
+                // Page fault occurs since page is not in memory
                 pageFaults++;
+
                 if (frames.length < frameCount) {
+                    // There is still space in the memory, so just add the page
                     frames.push(page);
-                    fifoQueue.push(page);
+                    fifoQueue.push(page);  // Track the page's arrival order
                 } else {
-                    const oldestPage = fifoQueue.shift();
+                    // Memory is full, need to replace the oldest page (FIFO)
+                    const oldestPage = fifoQueue.shift();  // Remove the oldest page from the queue
                     const indexToRemove = frames.indexOf(oldestPage);
+
                     if (indexToRemove !== -1) {
+                        // Replace the oldest page with the new one
                         frames.splice(indexToRemove, 1, page);
                     }
+
+                    // Add the new page to the end of the FIFO queue
                     fifoQueue.push(page);
                 }
             }
+
+            // Save the current state of the memory frames
             frameStates.push([...frames]);
         }
+
+        // Return the total page faults and the recorded frame states
         return { pageFaults, frameStates };
     }
 
+
+    // LRU (Least Recently Used) Algorithm Function
     function runLRU(referenceString, frameCount) {
-        const frames = [];
-        const frameStates = [];
-        let pageFaults = 0;
+        const frames = [];            
+        const frameStates = [];       
+        let pageFaults = 0;          
         const lruOrder = [];
 
+        // Iterate through each page in the reference string
         for (const page of referenceString) {
-            const pageIndex = frames.indexOf(page);
+            const pageIndex = frames.indexOf(page);  // Check if the page is already in memory
+
             if (pageIndex === -1) {
+                // Page fault occurs (page not in memory)
                 pageFaults++;
+
                 if (frames.length < frameCount) {
+                    // If there is still space in memory, just add the page
                     frames.push(page);
                 } else {
-                    const leastRecentlyUsedPage = lruOrder.pop();
+                    // Memory is full, so replace the least recently used page
+                    const leastRecentlyUsedPage = lruOrder.pop();  // Remove the last used page
                     const indexToRemove = frames.indexOf(leastRecentlyUsedPage);
+
                     if (indexToRemove !== -1) {
+                        // Replace the LRU page with the current one
                         frames.splice(indexToRemove, 1, page);
                     }
                 }
             } else {
+                // Page is already in memory (no page fault)
+                // Remove it from its current position in the LRU order
                 lruOrder.splice(lruOrder.indexOf(page), 1);
             }
+
+            // Add the current page to the front of the LRU list (most recently used)
             lruOrder.unshift(page);
+
+            // Save the current state of frames for visualization or tracking
             frameStates.push([...frames]);
         }
+
+        // Return the total number of page faults and the recorded frame states
         return { pageFaults, frameStates };
     }
 
+
+    // Optimal Algorithm functions
     function runOptimal(referenceString, frameCount) {
         const frames = Array(frameCount).fill(null);
         const frameStates = [];
@@ -188,8 +220,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const distances = frames.map((pageInFrame) => {
                     // Find the index of the next occurrence of the page in the future
                     const nextIndex = referenceString.slice(i + 1).indexOf(pageInFrame);
-                    // If the page is not found in the future, treat it as "never used" (Infinity)
-                    return nextIndex === -1 ? Infinity : nextIndex + (i + 1); // Adjust index to global
+                    // If the page is not used again in the future, assign Infinity to prioritize its replacement
+                    return nextIndex === -1 ? Infinity : nextIndex + (i + 1); 
                 });
 
                 // Find the page with the farthest next occurrence
@@ -224,7 +256,6 @@ document.addEventListener('DOMContentLoaded', () => {
         referenceRowElement.innerHTML = '';
         frameGridElement.innerHTML = '';
 
-        // Populate reference row
         referenceString.forEach(val => {
             const refDiv = document.createElement('div');
             refDiv.className = 'ref';
@@ -232,7 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
             referenceRowElement.appendChild(refDiv);
         });
 
-        // Populate frame grid
         let previousState = null;
         result.frameStates.forEach(state => {
             const columnDiv = document.createElement('div');
@@ -252,6 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Display the algorithm with the least page faults
     function displayLeastFaultAlgorithm() {
         let minFaults = Infinity;
         const bestAlgorithms = [];
@@ -259,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for (const algorithm in algorithmResults) {
             if (algorithmResults[algorithm].faults < minFaults) {
                 minFaults = algorithmResults[algorithm].faults;
-                bestAlgorithms.length = 0; // Reset the array
+                bestAlgorithms.length = 0;
                 bestAlgorithms.push(algorithm);
             } else if (algorithmResults[algorithm].faults === minFaults) {
                 bestAlgorithms.push(algorithm);
@@ -309,7 +340,6 @@ document.addEventListener('DOMContentLoaded', () => {
         table.appendChild(row);
     }
 
-    // Clear previous results
     analysisContainer.innerHTML = '';
     analysisContainer.appendChild(table);
 }
@@ -331,12 +361,8 @@ document.addEventListener('DOMContentLoaded', () => {
             errorElement.textContent = '';
         }
     }
-
-    
 });
 
-
-// Navigation function
 function goMain() {
     window.location.href = 'index.html';
 }
