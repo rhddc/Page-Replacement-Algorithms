@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         displayAnalysisTable(); // Display analysis table
     });
 
-    // FIFO (First-In, First-Out) Algorithm Function
+    // FIFO (First In First Out) Algorithm Function
     function runFIFO(referenceString, frameCount) {
         const frames = [];
         const frameStates = [];
@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const algorithm in algorithmResults) {
         const row = document.createElement('tr');
         const faults = algorithmResults[algorithm].faults;
-        const fullName = algorithmDisplayNames[algorithm] || algorithm; // fallback if not mapped
+        const fullName = algorithmDisplayNames[algorithm] || algorithm;
         row.innerHTML = `<td>${fullName}</td><td>${faults}</td>`;
         table.appendChild(row);
     }
