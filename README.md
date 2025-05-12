@@ -12,3 +12,12 @@ Go to the "Releases" section on the right side of this gitHub repository. Find t
 ___
 # Images
 
+___
+# Credits
+This project used [Electron](https://www.electronjs.org/) for building desktop apps.
+___
+# License
+This project is licensed under the MIT license.
+
+© 2025 Rhed-Dela-Cruz. All rights reserved.
+
