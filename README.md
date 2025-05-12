@@ -7,3 +7,8 @@ ___
 - **CSS** – For styling the application.
 - **JavaScript** – To implement the logic and simulate page replacement algorithms
 ___
+# How to Install the App
+Go to the "Releases" section on the right side of this gitHub repository. Find the latest release, and in the "Assets" section, download the .exe setup file to install the app.
+___
+# Images
+![image](https://github.com/user-attachments/assets/22256121-6591-4c5d-8365-7a16f1d85b8f)
