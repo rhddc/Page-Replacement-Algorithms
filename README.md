@@ -11,5 +11,4 @@ ___
 Go to the "Releases" section on the right side of this gitHub repository. Find the latest release, and in the "Assets" section, download the .exe setup file to install the app.
 ___
 # Images
-![Screenshot 05-12-2025 15 15 09](https://github.com/user-attachments/assets/7f546f75-0288-4785-9dbb-bd771869d9c6)
 
