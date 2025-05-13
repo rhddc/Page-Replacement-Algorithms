@@ -7,3 +7,17 @@ ___
 - **CSS** – For styling the application.
 - **JavaScript** – To implement the logic and simulate page replacement algorithms
 ___
+# How to Install the App
+Go to the "Releases" section on the right side of this gitHub repository. Find the latest release, and in the "Assets" section, download the .exe setup file to install the app.
+___
+# Images
+
+___
+# Credits
+This project used [Electron](https://www.electronjs.org/) for building desktop apps.
+___
+# License
+This project is licensed under the MIT license.
+
+© 2025 Rhed-Dela-Cruz. All rights reserved.
+
