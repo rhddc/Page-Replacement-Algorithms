@@ -46,13 +46,12 @@
       ]
     },
     "nsis": {
-      "oneClick": true,
-      "perMachine": false,
+      "oneClick": false,
       "allowElevation": true,
       "installerIcon": "icons/app-icon.ico",
       "uninstallerIcon": "icons/app-icon.ico",
-      "uninstallDisplayName": "Uninstall Page Replacement Algorithms",
-      "allowToChangeInstallationDirectory": false
+      "uninstallDisplayName": "Page Replacement Algorithms",
+      "allowToChangeInstallationDirectory": true
     }
   }
 }
