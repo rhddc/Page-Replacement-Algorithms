@@ -22,5 +22,5 @@ ___
 # License
 This project is licensed under the MIT license.
 
-© 2025 Rhed-Dela-Cruz. All rights reserved.
 
+© 2025 Rhed-Dela-Cruz. All rights reserved.
