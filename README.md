@@ -11,6 +11,9 @@ ___
 Go to the "Releases" section on the right side of this gitHub repository. Find the latest release, and in the "Assets" section, download the .exe setup file to install the app.
 ___
 # Images
+![image](https://github.com/user-attachments/assets/5383bfcd-7b96-4d5f-a491-c87ad443db9b)
+![image](https://github.com/user-attachments/assets/538b4b32-185c-4359-90d2-911dbb0d7a7d)
+
 
 ___
 # Credits
@@ -19,5 +22,6 @@ ___
 # License
 This project is licensed under the MIT license.
 
+<br>
+<br>
 © 2025 Rhed-Dela-Cruz. All rights reserved.
-
