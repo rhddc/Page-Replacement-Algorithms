@@ -31,9 +31,10 @@
     "icon": "./icons/app-icon.ico",
     "files": [
       "src/**/*",
-      "resources/ffmpeg.dll",
-      "package.json",
-      "icons/**/*"
+      "icons/**/*",
+      "node_modules/**/*",
+      "package.json"
+
     ],
     "win": {
       "target": [
@@ -46,12 +47,10 @@
       ]
     },
     "nsis": {
-      "oneClick": false,
-      "allowElevation": true,
+      "oneClick": true,
       "installerIcon": "icons/app-icon.ico",
       "uninstallerIcon": "icons/app-icon.ico",
-      "uninstallDisplayName": "Page Replacement Algorithms",
-      "allowToChangeInstallationDirectory": true
+      "uninstallDisplayName": "Page Replacement Algorithms"
     }
   }
 }
